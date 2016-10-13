@@ -1,45 +1,24 @@
 /**
  * Created by User on 9/18/2016.
- * Developer :- Kasun
+ * Developer :- Amila
  */
-var Module = require('../../models/Models');
-var User = Module.User;
+var Connection = require('../../models/Connection');
 
 function UserController() {
-    
     /*
-     * get all the user types without filtering
-     * @params
-     * res = response of middleware express
+     * check if the valid user make the request
+     * @ client id:- id of the client
+     * @ callback :- callback method to return value
      */
-    this.get = function(res) {
-        User.findAll({
-                            where: {
-                                status: 1
-                              }
-            }).then(function(data) {
-            res.send(data);
-        });
-    };
-
-    /*
-     *insert new user
-     * @params
-     * UserRoleInstance = Instance provided by the client
-     * res = response of middleware express
-     */
-    this.create = function(UserInstance, res) {
-        User.create( {
-                userPassword: UserInstance.password,
-                userUserName: UserInstance.user_name,
-                userFullname: UserInstance.full_name,
-                userEmail: UserInstance.email,
-                status: 1
+    this.validateUser = function(clientId, callback) {
+        Connection.query('SELECT `status` FROM `users` WHERE id='+clientId,{ type: Connection.QueryTypes.SELECT}).then(function(data) {
+            if (data[0]['status'] == 1) {
+                return callback(true);
+            } else {
+                return callback(false);
             }
-        ).then(function(data) {
-                res.send(data);
         });
-    };
+    }
 
 }
 

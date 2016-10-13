@@ -6,6 +6,9 @@
 var Controllers = {};
 
 Controllers.UserController = require('./ModuleControllers/UserController');
-Controllers.OrderController = require('./ModuleControllers/OrderController');
-Controllers.FoodController = require('./ModuleControllers/FoodController');
+Controllers.SubjectController = require('./ModuleControllers/SubjectController');
+Controllers.ModuleController = require('./ModuleControllers/ModuleController');
+Controllers.UnitController = require('./ModuleControllers/UnitController');
+Controllers.ResourceController = require('./ModuleControllers/ResourceController');
+
 module.exports = Controllers;
