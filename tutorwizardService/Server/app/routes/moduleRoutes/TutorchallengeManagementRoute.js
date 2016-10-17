@@ -15,4 +15,12 @@ router.get('/getchallenge/:id/:unitId', function(req, res, next) {
     TutorChallengeController.getTutorChallenge(req.params.id, req.params.unitId, res);
 });
 
+router.post('/:id', function(req, res, next) {
+    TutorChallengeController.addAnswerForChallenge(req.params.id, req.body, res);
+});
+
+router.put('/:id', function(req, res, next) {
+    TutorChallengeController.updateAnswerForChallenge(req.params.id, req.body, res);
+})
+
 module.exports = router;
