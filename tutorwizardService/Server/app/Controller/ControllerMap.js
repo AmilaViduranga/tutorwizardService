@@ -12,5 +12,6 @@ Controllers.UnitController = require('./ModuleControllers/UnitController');
 Controllers.ResourceController = require('./ModuleControllers/ResourceController');
 Controllers.GlossaryController = require('./ModuleControllers/GlossaryController');
 Controllers.FaqController = require('./ModuleControllers/FaqController');
+Controllers.TutorChallengeController = require('./ModuleControllers/TutorChallengeController');
 
 module.exports = Controllers;
