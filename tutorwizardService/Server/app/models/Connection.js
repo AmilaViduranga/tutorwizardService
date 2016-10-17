@@ -6,9 +6,10 @@
  */
 var Sequelize = require('sequelize');
 var sequelize = require('sequelize')
-    , sequelize = new Sequelize('sa_db', 'root', 'root', {
-      dialect: "mysql",
-      port:    3306,
+    , sequelize = new Sequelize('tutorwiz_locallive_new', 'root', 'root', {
+        host: 'localhost',
+        dialect: "mysql",
+        port:    3306,
     });
 
 module.exports = sequelize;
