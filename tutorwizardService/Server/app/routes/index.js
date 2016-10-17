@@ -14,6 +14,7 @@ var UnitManagementRoute = require('./moduleRoutes/UnitManagementRoute');
 var ResourceManagementRoute = require('./moduleRoutes/ResourceManagementRoute');
 var GlossaryManagementRoute = require('./moduleRoutes/GlossaryManagementRoute');
 var FaqManagementRoute = require('./moduleRoutes/FaqManagementRoute');
+var TutorChallengeManagementRoute = require('./moduleRoutes/TutorchallengeManagementRoute');
 
 router.use('/user-management/', UserManagementRoute);
 router.use('/subject/', SubjectManagementRoute);
@@ -22,5 +23,6 @@ router.use('/unit/', UnitManagementRoute);
 router.use('/resource/', ResourceManagementRoute);
 router.use('/glossary/', GlossaryManagementRoute);
 router.use('/faq/', FaqManagementRoute);
+router.use('/tutorchallenge/', TutorChallengeManagementRoute);
 
 module.exports = router;
