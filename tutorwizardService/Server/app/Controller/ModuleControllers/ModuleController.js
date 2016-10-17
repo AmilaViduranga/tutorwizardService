@@ -31,7 +31,7 @@ function ModuleController() {
      */
     function getModules(subjectId, callback) {
         Connection.query('SELECT `module_id`,`module_name` FROM `modules` WHERE `subject_id`='+subjectId, { type: Connection.QueryTypes.SELECT}).then(function(data) {
-            if(data) {
+            if(!data.length == 0) {
                 return callback(data);
             } else {
                 return callback({'status': 500, 'message': 'not available'});

@@ -11,4 +11,8 @@ router.get('/available/:id/:unitId', function(req, res, next) {
     ResourceController.availableResource(req.params.id, req.params.unitId, res);
 });
 
+router.get('/getresources/:id/:unitId/:catagoryId', function(req, res, next) {
+    ResourceController.getResourceForCategory(req.params.id, req.params.unitId, req.params.catagoryId, res);
+})
+
 module.exports = router;

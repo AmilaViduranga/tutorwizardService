@@ -34,7 +34,7 @@ function subjectController() {
      */
     function getStudentGrade(studentId, callback) {
         Connection.query('SELECT `grade_id` FROM `student_packages` WHERE `student_id`='+studentId, { type: Connection.QueryTypes.SELECT}).then(function(data) {
-           if(data) {
+           if(!data.length == 0) {
                return callback(data[0]['grade_id']);
            } else {
                return callback(false);
@@ -49,7 +49,7 @@ function subjectController() {
      */
     function getAllAvailableSubjects(studentGrade, callback) {
         Connection.query('SELECT `subject_id`,`subject_name` FROM `subjects` WHERE `grade_id`='+studentGrade, { type: Connection.QueryTypes.SELECT}).then(function(data) {
-            if(data) {
+            if(!data.length == 0) {
                 return callback(data);
             } else {
                 return callback({'message' : 'no subjects available'});

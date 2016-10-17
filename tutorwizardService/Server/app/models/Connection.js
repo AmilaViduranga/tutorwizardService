@@ -6,8 +6,8 @@
  */
 var Sequelize = require('sequelize');
 var sequelize = require('sequelize')
-    , sequelize = new Sequelize('tutorwiz_locallive_new', 'root', '', {
-        host: '192.168.1.3',
+    , sequelize = new Sequelize('tutorwiz_locallive_new', 'root', 'root', {
+        host: 'localhost',
         dialect: "mysql",
         port:    3306,
     });

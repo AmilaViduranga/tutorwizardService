@@ -12,11 +12,15 @@ var SubjectManagementRoute = require('./moduleRoutes/SubjectManagementRoute');
 var ModuleManagementRoute = require('./moduleRoutes/ModuleManagementRoute');
 var UnitManagementRoute = require('./moduleRoutes/UnitManagementRoute');
 var ResourceManagementRoute = require('./moduleRoutes/ResourceManagementRoute');
+var GlossaryManagementRoute = require('./moduleRoutes/GlossaryManagementRoute');
+var FaqManagementRoute = require('./moduleRoutes/FaqManagementRoute');
 
 router.use('/user-management/', UserManagementRoute);
 router.use('/subject/', SubjectManagementRoute);
 router.use('/module/', ModuleManagementRoute);
 router.use('/unit/', UnitManagementRoute);
 router.use('/resource/', ResourceManagementRoute);
+router.use('/glossary/', GlossaryManagementRoute);
+router.use('/faq/', FaqManagementRoute);
 
 module.exports = router;

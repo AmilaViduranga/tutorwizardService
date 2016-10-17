@@ -2,6 +2,8 @@
  * Created by User on 9/18/2016.
  * Developer :- Amila
  */
+
+var Promise = require('bluebird');
 var Connection = require('../../models/Connection');
 
 function UserController() {
@@ -19,6 +21,21 @@ function UserController() {
             }
         });
     }
+
+    // this.validateUser = function(clientId) {
+    //     return new Promise(function(resolve, reject) {
+    //         Connection.query('SELECT `status` FROM `users` WHERE id='+clientId,{ type: Connection.QueryTypes.SELECT}).then(function(data) {
+    //             if (data[0]['status'] == 1) {
+    //                 resolve(true);
+    //             } else {
+    //                 resolve(false);
+    //             }
+    //         }, function(err) {
+    //             reject(err);
+    //         });
+    //     });
+    //
+    // }
 
 }
 

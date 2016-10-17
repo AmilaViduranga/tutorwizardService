@@ -10,5 +10,7 @@ Controllers.SubjectController = require('./ModuleControllers/SubjectController')
 Controllers.ModuleController = require('./ModuleControllers/ModuleController');
 Controllers.UnitController = require('./ModuleControllers/UnitController');
 Controllers.ResourceController = require('./ModuleControllers/ResourceController');
+Controllers.GlossaryController = require('./ModuleControllers/GlossaryController');
+Controllers.FaqController = require('./ModuleControllers/FaqController');
 
 module.exports = Controllers;

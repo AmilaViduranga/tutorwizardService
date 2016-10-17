@@ -30,7 +30,7 @@ function UnitController() {
      */
     function getUnits(moduleId, callback) {
         Connection.query('SELECT `unit_id`,`unit_name` FROM `units` WHERE `module_id`='+moduleId, { type: Connection.QueryTypes.SELECT}).then(function(data) {
-            if(data) {
+            if(!data.length == 0) {
                 return callback(data);
             } else {
                 return callback({'status': 500, 'message': 'not available'});
