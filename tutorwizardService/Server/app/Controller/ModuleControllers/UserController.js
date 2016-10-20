@@ -22,6 +22,16 @@ function UserController() {
         });
     }
 
+    this.paymentValidationService = function(clientId, res) {
+        return this.validateUser(clientId, function(state) {
+            return res.send(
+                {
+                    'state':200,
+                    'valid':state
+                }
+            );
+        });
+    }
     // this.validateUser = function(clientId) {
     //     return new Promise(function(resolve, reject) {
     //         Connection.query('SELECT `status` FROM `users` WHERE id='+clientId,{ type: Connection.QueryTypes.SELECT}).then(function(data) {

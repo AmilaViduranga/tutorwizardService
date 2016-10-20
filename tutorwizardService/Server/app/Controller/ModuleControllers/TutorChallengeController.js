@@ -33,6 +33,65 @@ function TutorChallengeController() {
         });
     }
 
+    this.addAnswerForChallenge = function (clientId,data) {
+        return User.validateUser(clientId, function(result) {
+            if (result) {
+                var tutorInstance = {};
+                tutorInstance.tutor_challenge_id = data.challenge_id;
+                tutorInstance.student_id = clientId;
+                tutorInstance.answers = data.answers;
+                return addAnswer(tutorInstance, function(data) {
+                   if (data) {
+                       return res.send({'status':200, 'message':'successfully inserted challenge'});
+                   } else {
+                       return res.send({'status':500, 'message':'error going on, please try it again'});
+                   }
+                });
+            } else {
+                return res.send({'status':404, 'message':'Permission Denied'});
+            }
+        })
+    }
+
+    this.updateAnswerForChallenge = function (clientId, data) {
+        return User.validateUser(clientId, function(result) {
+            if(result) {
+                var tutorInstance = {};
+                tutorInstance.tutor_challenge_id = data.challenge_id;
+                tutorInstance.answers = data.answers;
+                return updateAnswer(tutorInstance, function(data) {
+                    if (data) {
+                        return res.send({'status':200, 'message':'successfully updated challenge'});
+                    } else {
+                        return res.send({'status':500, 'message':'error going on, please try it again'});
+                    }
+                })
+            } else {
+                return res.send({'status':404, 'message':'Permission Denied'});
+            }
+        })
+    }
+
+    function updateAnswer(tutorInstance, callback) {
+        return Connection.query('UPDATE tutor_challenges SET answer='+tutorInstance.answers+' where id='+tutorInstance.tutor_challenge_id).then(function(data) {
+            if(data) {
+                return callback(true);
+            } else {
+                return callback(false);
+            }
+        });
+    }
+
+    function addAnswer(tutorInstance, callback) {
+        return Connection.query('INSERT INTO tutor_challenge_results(tutor_challenge_id, student_id, answers) VALUES ('+tutorInstance.tutor_challenge_id+','+tutorInstance.student_id+','+tutorInstance.answers+')').then(function(data) {
+            if (data) {
+                return callback(true);
+            } else {
+                return callback(false);
+            }
+        });
+    }
+
     function getChalengeForUser(clientId, unitId, callback) {
         return challengeAvailable(unitId, function(isavailable) {
             if (isavailable) {
