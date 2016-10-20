@@ -13,5 +13,6 @@ Controllers.ResourceController = require('./ModuleControllers/ResourceController
 Controllers.GlossaryController = require('./ModuleControllers/GlossaryController');
 Controllers.FaqController = require('./ModuleControllers/FaqController');
 Controllers.TutorChallengeController = require('./ModuleControllers/TutorChallengeController');
+Controllers.SearchController = require('./ModuleControllers/SearchController');
 
 module.exports = Controllers;
