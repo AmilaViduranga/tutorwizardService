@@ -5,14 +5,28 @@
  */
 var Controllers = {};
 
+//LearningZone Controllers
 Controllers.UserController = require('./ModuleControllers/UserController');
-Controllers.SubjectController = require('./ModuleControllers/SubjectController');
-Controllers.ModuleController = require('./ModuleControllers/ModuleController');
-Controllers.UnitController = require('./ModuleControllers/UnitController');
-Controllers.ResourceController = require('./ModuleControllers/ResourceController');
-Controllers.GlossaryController = require('./ModuleControllers/GlossaryController');
-Controllers.FaqController = require('./ModuleControllers/FaqController');
-Controllers.TutorChallengeController = require('./ModuleControllers/TutorChallengeController');
-Controllers.SearchController = require('./ModuleControllers/SearchController');
+Controllers.SubjectController = require('./ModuleControllers/LearningZone/SubjectController');
+Controllers.ModuleController = require('./ModuleControllers/LearningZone/ModuleController');
+Controllers.UnitController = require('./ModuleControllers/LearningZone/UnitController');
+Controllers.ResourceController = require('./ModuleControllers/LearningZone/ResourceController');
+Controllers.GlossaryController = require('./ModuleControllers/LearningZone/GlossaryController');
+Controllers.FaqController = require('./ModuleControllers/LearningZone/FaqController');
+Controllers.TutorChallengeController = require('./ModuleControllers/LearningZone/TutorChallengeController');
+Controllers.SearchController = require('./ModuleControllers/LearningZone/SearchController');
+
+//MyAccount Controllers
+Controllers.PaymentController = require('./ModuleControllers/MyAccount/PaymentController');
+Controllers.CancelSubscription = require('./ModuleControllers/MyAccount/CancelSubscriptionController');
+
+//curriculum controllers
+Controllers.CurriculumController = require('./ModuleControllers/Curriculum/CurriculumController');
+
+//grade controllers
+Controllers.GradesController = require('./ModuleControllers/Grades/GradeController');
+
+//package controllers
+Controllers.PackageController = require('./ModuleControllers/Package/PackageController');
 
 module.exports = Controllers;
