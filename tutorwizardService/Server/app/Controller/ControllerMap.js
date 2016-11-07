@@ -29,4 +29,8 @@ Controllers.GradesController = require('./ModuleControllers/Grades/GradeControll
 //package controllers
 Controllers.PackageController = require('./ModuleControllers/Package/PackageController');
 
+//message controllers
+Controllers.MessageController = require('./ModuleControllers/Messages/MessageController');
+Controllers.MessageTypeController = require('./ModuleControllers/Messages/MessageTypeController');
+
 module.exports = Controllers;

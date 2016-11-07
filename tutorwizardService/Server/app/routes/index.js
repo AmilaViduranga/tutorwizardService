@@ -31,6 +31,10 @@ var GradeManagementRoute = require('./moduleRoutes/GradesRoutes/GradeManagementR
 //package route importing
 var PackageManagementRoute = require('./moduleRoutes/PackageRoutes/PackageManagementRoute');
 
+//message route importing
+var MessageManagementRoute = require('./moduleRoutes/MessageRoutes/MessageManagementRoute');
+var MessageManagementTypeRoute = require('./moduleRoutes/MessageRoutes/MessageTypeManagementRoute');
+
 //LearningZone Routes registering
 router.use('/user/', UserManagementRoute);
 router.use('/subject/', SubjectManagementRoute);
@@ -54,5 +58,9 @@ router.use('/grades/', GradeManagementRoute);
 
 //package routes registering
 router.use('/package/', PackageManagementRoute);
+
+//message management routes registering
+router.use('/message/', MessageManagementRoute);
+router.use('/messagetypes/', MessageManagementTypeRoute);
 
 module.exports = router;
