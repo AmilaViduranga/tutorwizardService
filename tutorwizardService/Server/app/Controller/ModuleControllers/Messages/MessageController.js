@@ -15,6 +15,7 @@ function  MessageController() {
     this.createMessage = function(clientId, messageContent, subjectId, res) {
         return User.validateUser(clientId, function(data) {
             if (data) {
+                messageContent = JSON.parse(messageContent);
                 return addMessage(messageContent,clientId, subjectId, function(response) {
                     if(response) {
                         if(messageContent.resource_id) {
@@ -58,9 +59,9 @@ function  MessageController() {
     }
 
     function addMessage(messageContent, clientId, subjectId, callback) {
-        var datetime = new Date();
-        return Connection.query('INSERT INTO `messages`(`title`, `message`, `type_id`, `seen`, `sent_date`, `user_id`, `subject_id`) ' +
-            'VALUES ('+messageContent.title+','+messageContent.message+','+messageContent.type_id+',false,'+datetime+','+clientId+','+subjectId+')',{ type: Connection.QueryTypes.SELECT}).then(function(data) {
+        var datetime = Date.parse(new Date());
+        return Connection.query('INSERT INTO `messages`(`title`, `message`, `sent_to`, `seen`, `sent_date`, `user_id`, `subject_id`) ' +
+            'VALUES ("'+messageContent.title+'","'+messageContent.message+'",'+messageContent.type_id+',false,"'+datetime+'",'+clientId+','+subjectId+')',{ type: Connection.QueryTypes.INSERT}).then(function(data) {
                 if (!data) {
                     return callback(false);
                 } else if(data) {

@@ -33,4 +33,7 @@ Controllers.PackageController = require('./ModuleControllers/Package/PackageCont
 Controllers.MessageController = require('./ModuleControllers/Messages/MessageController');
 Controllers.MessageTypeController = require('./ModuleControllers/Messages/MessageTypeController');
 
+//file uploader controller
+Controllers.FileUploader = require('./ModuleControllers/FileUploader/FileUploaderController');
+
 module.exports = Controllers;

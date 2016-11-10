@@ -35,6 +35,9 @@ var PackageManagementRoute = require('./moduleRoutes/PackageRoutes/PackageManage
 var MessageManagementRoute = require('./moduleRoutes/MessageRoutes/MessageManagementRoute');
 var MessageManagementTypeRoute = require('./moduleRoutes/MessageRoutes/MessageTypeManagementRoute');
 
+//file uplading route importing
+var FileUploaderManagementRoute = require('./moduleRoutes/FileUploaderRoutes/FileUploaderManagementRoute');
+
 //LearningZone Routes registering
 router.use('/user/', UserManagementRoute);
 router.use('/subject/', SubjectManagementRoute);
@@ -62,5 +65,8 @@ router.use('/package/', PackageManagementRoute);
 //message management routes registering
 router.use('/message/', MessageManagementRoute);
 router.use('/messagetypes/', MessageManagementTypeRoute);
+
+//file uploader
+router.use('/filemanager/', FileUploaderManagementRoute);
 
 module.exports = router;
