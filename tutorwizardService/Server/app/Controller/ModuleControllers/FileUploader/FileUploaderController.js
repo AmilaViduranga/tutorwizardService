@@ -24,21 +24,17 @@ function FileUploaderController() {
     }
 
     this.getProfile = function(clientId, res) {
-        return User.validateUser(clientId, function(result) {
-            if(result) {
-                return Connection.query('SELECT image FROM users WHERE id='+clientId+'', { type: Connection.QueryTypes.SELECT}).then(function (data) {
-                    if(!data.length == 0) {
-                        data.forEach(function (item) {
-                            if(item.image) {
-                                return res.send({'status': 200, 'imagepath': item.image});
-                            } else {
-                                return res.send({'status' : 500, 'imagepath': 'Profile/default.jpg'});
-                            }
-                        })
+        return Connection.query('SELECT image FROM users WHERE id=' + clientId + '', {type: Connection.QueryTypes.SELECT}).then(function (data) {
+            if (!data.length == 0) {
+                data.forEach(function (item) {
+                    if (item.image) {
+                        return res.sendfile('Uploads/' + item.image);
                     } else {
-                        return res.send({'status': 404, 'message': 'there is an error on server, please try again'});
+                        return res.sendfile('Uploads/Profile/default.jpg');
                     }
                 })
+            } else {
+                return res.send({'status': 404, 'message': 'there is an error on server, please try again'});
             }
         })
     }
