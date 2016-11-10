@@ -34,7 +34,7 @@ function FileUploaderController() {
                     }
                 })
             } else {
-                return res.send({'status': 404, 'message': 'there is an error on server, please try again'});
+                return res.sendfile('Uploads/Profile/default.jpg');
             }
         })
     }
